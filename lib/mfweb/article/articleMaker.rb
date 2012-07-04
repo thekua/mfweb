@@ -1,6 +1,6 @@
 module Mfweb::Article
 
-class PaperMaker < Mfweb::Core::TransformerPageRenderer
+class ArticleMaker < Mfweb::Core::TransformerPageRenderer
   attr_accessor :pattern_server, 
     :code_server, :bib_server, :footnote_server, :catalog
   def initialize infile, outfile, skeleton = nil

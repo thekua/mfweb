@@ -1,0 +1,7 @@
+task :default do
+  cd 'sample' do
+    load 'rakefile'
+    Rake::Task['clobber'].invoke
+    Rake::Task['articles'].invoke
+  end
+end
