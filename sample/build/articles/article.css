@@ -1,0 +1,354 @@
+@import url(reset.css);
+div#banner {
+  background-color: black;
+  height: 100px;
+  font-family: arial, helvetica, clean, sans-serif;
+  color: white;
+  font-size: 14px;
+  position: relative; }
+  div#banner img.name-logo, div#banner img.ie6-name-logo {
+    position: absolute;
+    top: 0;
+    left: 10px; }
+  div#banner img.photo {
+    position: absolute; }
+  div#banner div.main-navigation {
+    position: absolute;
+    bottom: 10px;
+    left: 10px; }
+    div#banner div.main-navigation p {
+      margin: 0;
+      padding: 0; }
+  div#banner a:link, div#banner a:visited {
+    color: white;
+    text-decoration: none; }
+  div#banner a:hover {
+    color: #BC85CC;
+    text-decoration: underline; }
+  div#banner a.tw:link, div#banner a.tw:visited {
+    color: #D5E14D; }
+  div#banner ul {
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+  div#banner ul li {
+    float: left;
+    padding-right: 10px;
+    font-family: arial, helvetica, clean, sans-serif;
+    font-size: 14px; }
+  div#banner img {
+    border: 0; }
+  div#banner div.search {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-image: url("http://martinfowler.com/search_bg.gif");
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    float: left;
+    height: 23px;
+    width: 173px; }
+  div#banner div.search input {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 12px; }
+  div#banner div.search input.field {
+    margin: 3px 3px 3px 4px;
+    width: 142px; }
+  div#banner div.search input.button {
+    width: 18px;
+    font-size: 99%;
+    background-color: transparent; }
+
+/* ================ footer ================ */
+div#footer {
+  margin-top: 15px;
+  background-color: black;
+  color: white; }
+  div#footer ul, div#footer li, div#footer h1, div#footer p {
+    font-size: 12px;
+    font-family: arial, helvetica, clean, sans-serif;
+    text-align: left; }
+  div#footer a:link, div#footer a:visited {
+    color: white;
+    text-decoration: none; }
+  div#footer a:hover {
+    color: #BC85CC;
+    text-decoration: underline; }
+  div#footer a.tw:link, div#footer a.tw:visited {
+    color: #d5e14d; }
+  div#footer h1 {
+    color: #BC85CC;
+    padding: 0 0 5px 0; }
+  div#footer div.col1, div#footer div.col2, div#footer div.col3, div#footer div.col4 {
+    float: left;
+    margin: 5px 10px;
+    background-color: transparent; }
+  div#footer ul {
+    list-style-type: square;
+    margin: 0 0 0 15px;
+    padding: 0; }
+  div#footer div.col1 {
+    width: 60px; }
+  div#footer div.col2 {
+    width: 140px; }
+  div#footer div.col3 {
+    width: 220px; }
+  div#footer div.col4 {
+    width: 300px; }
+  div#footer div.copyright {
+    padding: 5px 10px;
+    clear: both; }
+
+body {
+  margin: 0; }
+
+body {
+  font-size: 16px;
+  font-family: arial, helvetica, clean, sans-serif;
+  line-height: 1.2;
+  color: #333333; }
+
+#content {
+  background-color: white;
+  margin: 2em auto 2em 3em;
+  width: 40em;
+  min-height: 500px; }
+
+h1, h2, h3 {
+  color: #511262;
+  font-weight: bold; }
+  h1 a:link, h1 a:visited, h2 a:link, h2 a:visited, h3 a:link, h3 a:visited {
+    color: #511262; }
+
+h1 {
+  font-size: 200%; }
+
+h2 {
+  font-size: 150%; }
+
+p, h1, h2, h3, ul {
+  margin: 1em 0; }
+
+dd {
+  margin-left: 2em; }
+
+a:link, a:visited {
+  color: #823797;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: underline; }
+
+ul {
+  list-style: square;
+  margin-left: 1.5em; }
+
+ol {
+  list-style: decimal;
+  margin-left: 1.5em; }
+
+pre {
+  font-size: 90%; }
+
+span.credit {
+  color: #808080;
+  font-size: 80%; }
+
+hr {
+  border-style: dotted none none none;
+  border-top-width: thin;
+  margin: 10px 15px; }
+
+div.draft-notice {
+  border: thin solid red;
+  font-family: sans-serif;
+  margin: 1em 10%;
+  padding: 0.5em;
+  text-align: center; }
+  div.draft-notice h1 {
+    font-size: 120%;
+    color: black; }
+  div.draft-notice p {
+    color: red; }
+
+blockquote {
+  /* margin-left: 3em; */
+  border-left: 2px solid grey;
+  padding-left: 1em;
+  font-style: italic;
+  color: #511262; }
+
+.clear {
+  clear: both; }
+
+body {
+  font-size: 16px;
+  font-family: georgia, "lucida bright", "times new roman", serif; }
+
+div#banner {
+  margin-left: 3em; }
+
+h1, h2, h3 {
+  font-family: arial, helvetica, clean, sans-serif; }
+
+hr.topSection {
+  border-top: thick solid #511262;
+  margin: 3em 50% 0px 0px; }
+
+h2 {
+  margin: 0 0 1em 0; }
+
+h3 {
+  font-size: 120%; }
+
+div.photo, div.fullPhoto {
+  float: right;
+  margin: 1em 0 1em 1em;
+  font-size: 80%;
+  font-style: italic;
+  font-family: arial, helvetica, clean, sans-serif; }
+  div.photo p.credit, div.fullPhoto p.credit {
+    color: #808080;
+    font-size: 80%;
+    text-align: right; }
+
+div.fullPhoto {
+  float: none;
+  margin: 1em 0; }
+
+div#topImage {
+  float: right;
+  margin: 0 0 1em 20px;
+  clear: both;
+  width: 220px;
+  font-size: 80%;
+  font-style: italic;
+  font-family: arial, helvetica, clean, sans-serif; }
+  div#topImage img {
+    width: 220px; }
+
+p.abstract {
+  line-height: 1.4;
+  font-style: italic; }
+
+div.frontMatter {
+  padding: 1em 2em;
+  border-style: solid none;
+  border-width: thin 0;
+  clear: both;
+  overflow: hidden;
+  border-color: #511262;
+  font-family: arial, helvetica, clean, sans-serif;
+  padding: 1em 0;
+  font-size: 90%; }
+  div.frontMatter p, div.frontMatter div.translations, div.frontMatter div.tags {
+    margin: 0.3em; }
+  div.frontMatter div.topBox {
+    margin: 2em 0;
+    font-size: 90%; }
+
+div.frontLeft {
+  width: 40%;
+  float: left; }
+
+div.frontRight {
+  width: 55%;
+  float: right;
+  padding-right: 0; }
+
+div.author {
+  margin: 1em 0 0 0.3em; }
+  div.author img {
+    max-width: 80px;
+    float: left;
+    margin: 0 1em 1em 0; }
+  div.author p {
+    margin-left: 0;
+    font-size: 90%; }
+  div.author p.name {
+    font-weight: bold;
+    font-size: 100%;
+    margin: 1em 0; }
+  div.author a:link, div.author a:visited, div.author a:hover {
+    color: #511262; }
+
+div.contents {
+  /* puts contents to fixed right, useful when fiddling
+  position: fixed;
+  width: 15em;
+  top: 20em;
+  right: 3px;
+  */
+  /* to add bullet points to contents entries remove the `ul ul` margin
+     rule, remove `list-style-type none` from li (will pick up square
+     from global) and add `margin-left: 1.5em;` to li */ }
+  div.contents a:link, div.contents a:visited, div.contents a:hover {
+    color: #511262; }
+  div.contents ul {
+    margin: 0;
+    -webkit-padding-start: 0; }
+  div.contents ul ul {
+    margin: 0 1.2em; }
+  div.contents li {
+    list-style-type: none; }
+  div.contents h2 {
+    font-size: 100%;
+    color: #511262;
+    font-weight: bold;
+    margin: 0.5em 0; }
+
+div.paperBody {
+  clear: both;
+  line-height: 1.4; }
+
+div.paperBody p {
+  /*
+    font-family: georgia, serif;
+    */ }
+
+hr.bodySep {
+  margin: 5em 10%;
+  border-top: thin solid #511262;
+  clear: both; }
+
+pre {
+  font-size: 90%; }
+
+div.figure p.figureCaption {
+  margin-left: 2em;
+  font-style: italic;
+  font-size: 90%; }
+
+div.appendix {
+  font-size: 80%;
+  font-family: arial, helvetica, clean, sans-serif;
+  line-height: 1.2; }
+
+div.appendix hr.topSection {
+  border: none; }
+
+div.sidebar, div.soundbyte {
+  width: 20em;
+  float: right;
+  margin: 1em -15em 1em 2em;
+  font-size: 80%;
+  font-family: arial, helvetica, clean, sans-serif;
+  background-color: #eeeeee;
+  line-height: 1.2; }
+
+div.soundbyte {
+  font-size: 16px;
+  font-style: italic;
+  width: 20em; }
+
+div.sidebar p, div.soundbyte p {
+  margin: 1em; }
+
+div.footnote-list h3, div.footnote-list span.num {
+  color: #511262;
+  font-size: 100%;
+  font-weight: bold; }

@@ -1,0 +1,52 @@
+MFWEB_DIR = '../lib/'
+$: << MFWEB_DIR << 'lib'
+require 'mfweb/core'
+require 'mfweb/article'
+verbose(true)
+
+BUILD_DIR = 'build/'
+CSS_PATHS = %w[css ../mfweb/css]
+
+require 'sampleSite'
+Mfweb::Core::Site.init(SampleSite.new)
+
+task :default => [:clobber, :articles]
+
+require 'rake/clean'
+CLOBBER.include BUILD_DIR
+
+
+desc "build articles"
+task :articles
+sassTask 'articles/article.scss', 'articles', :articles
+build_simple_articles(Mfweb::Core::Site.skeleton.with_css('article.css'))
+
+# FileList['articles/mock/mocksArentStubs.xml'].each do |src|
+# 	target = File.join(BUILD_DIR + 'articles', 'mocksArentStubs.html')
+# 	file target => [src]  + article_deps do
+# 		require 'paper'
+#     skeleton = Site.skeleton.with_css('article.css')
+# 		maker = PaperMaker.new(src, target, skeleton)
+#     maker.bib_server = Bibliography.new 'bib.xml'
+# 		maker.code_server = CodeServer.new 'articles/mock/'
+# 		maker.run
+# 	end
+# 	task :articles => target
+# end
+
+                 
+
+
+
+
+
+
+
+
+
+task :diff do
+  cd "../mfweb"
+  Dir['*.rb'].each do |f|
+    system "diff -q #{f} ~/active/web/lib/#{f.pathmap('%f')}"
+  end
+end

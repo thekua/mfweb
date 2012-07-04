@@ -1,0 +1,170 @@
+$sans: arial, helvetica, clean, sans-serif;
+$tw-green: #D5E14D;             // TODO refactor these out 
+
+div#banner {
+    background-color: black;
+    height: 100px;
+    font-family: $sans;
+    color: white;
+    font-size: 14px;
+    position: relative;
+
+    img.name-logo, img.ie6-name-logo {
+        position: absolute;
+        top: 0;
+        left: 10px;
+    }
+
+    img.photo {
+        position: absolute;
+    }
+
+    div.main-navigation {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        
+        p {
+          margin: 0;
+          padding: 0;
+        }
+    }
+
+    a:link,  a:visited {
+        color: white;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #BC85CC;
+        text-decoration: underline;
+    }
+
+    a.tw:link,  a.tw:visited {
+        color: #D5E14D;
+    }
+
+
+    ul {
+        list-style-image: none;
+        list-style-position: outside;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li {
+        float: left;
+        padding-right: 10px;
+        font-family: $sans;
+        font-size: 14px
+    }
+
+    img {
+        border: 0;
+    }
+
+
+    div.search {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        background-image:url("http://martinfowler.com/search_bg.gif");
+        background-position:0 0;
+        background-repeat:no-repeat;
+        float:left;
+        height:23px;
+        width:173px;
+    }
+
+
+    div.search input {
+	      margin: 0;
+	      padding: 0;
+	      border: 0;
+        font-size: 12px;
+    }
+
+    div.search input.field {
+        margin: 3px 3px 3px 4px;
+        width: 142px;
+    }
+
+    div.search input.button {
+        width: 18px;
+        font-size: 99%;
+        background-color:transparent;
+    }
+
+}
+
+/* ================ footer ================ */
+
+
+div#footer {
+    margin-top: 15px;
+    background-color: black;
+    color: white;
+    
+    ul, li, h1, p {
+        font-size: 12px;
+        font-family: $sans;
+        text-align: left;
+    }
+
+
+    a:link,  a:visited {
+        color: white;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #BC85CC;
+        text-decoration: underline;
+    }
+
+    a.tw:link,  a.tw:visited {
+        color: $tw-green;
+    }
+
+    h1 {
+        color: #BC85CC;
+        padding: 0 0 5px 0;
+    }
+
+
+    div.col1,  div.col2,  div.col3,  div.col4 {
+        float: left;
+        margin: 5px 10px;
+        background-color: transparent;
+    }
+
+    ul {
+        list-style-type: square;
+        margin: 0 0 0 15px;
+        padding: 0;        
+    }
+
+    div.col1 {
+        width: 60px;
+    }
+
+    div.col2 {
+        width: 140px;
+    }
+
+    div.col3 {
+        width: 220px;
+    }
+
+    div.col4 {
+        width: 300px;
+    }
+
+
+    div.copyright {
+        padding: 5px 10px;
+        clear: both;
+    }
+
+}

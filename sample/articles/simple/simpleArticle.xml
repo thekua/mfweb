@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<paper>
+<title>Simple Article</title>
+<credits>by Foo Barley</credits>
+<version date="2012-06-28">Another rewrite. Note that the most recent
+version goes at the top.</version>
+<version date="2012-05-21">First edition</version>
+<author>
+  <author-name>Foo Barley</author-name>
+  <author-url>http://google.com</author-url>
+  <author-bio>
+    <p>Brief author bio here. Include an avatar-like photo.</p>
+  </author-bio>
+  <author-photo src="mf.jpg" />
+</author>
+
+<abstract>
+This article is an example of how to build an article using this
+toolchain. There is both explanation and example here. This abstract
+section should be a brief summary that should summarize why the
+reader should be interested in getting into the rest of the article.
+</abstract>
+
+<body>
+<p>The article can begin with some summary paragraphs before the
+sections begin.</p>
+<p>I still have to work on providing more explanation and examples of
+how the publishing toolchain works.</p>
+<section>
+<h>Sections</h>
+
+<p>Documents are divided into sections using the section tag with an h
+tag used for the section heading</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum. </p>
+
+<section>
+<h>Nested Section</h>
+
+<p>Rather than HTML's numbered headings, in this format I nest
+sections inside each other - the level of the heading is derived from
+the nesting.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</section>
+</section>
+
+<section>
+<h>Bibliography and Citations</h>
+
+<p>When building a paper, you can supply a bibliography for citations.
+You can then include a citation either as <cite
+name="cunningham-checks"> a link around text</cite> or just
+stand-alone <cite name="GOF"/>. </p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum. </p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<sidebar>
+
+<p>A small sidebar - handy for call outs and links</p>
+
+</sidebar>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat. Duis aute irure dolor in
+reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</section>
+
+
+</body>
+
+<appendix>
+
+<section>
+<H>Back material</H>
+
+<p>The appendix is separated and rendered slightly differently. It's
+good for secondary items, acknowledgements, and the like.</p>
+
+</section>
+
+</appendix>
+</paper>
