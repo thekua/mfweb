@@ -111,7 +111,7 @@ class Transformer
     @html << aNode.to_s
   end
 
-
+  # TODO fix duplciation between this and htmlutils
   def emit_amazon anElement, isbn
     href = "http://www.amazon.com/gp/product/%s?ie=UTF8&tag=martinfowlerc-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=%s" % [isbn, isbn]
     @html.a_ref(href) {apply anElement}

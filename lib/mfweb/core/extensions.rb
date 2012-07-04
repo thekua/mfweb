@@ -24,6 +24,19 @@ class Array
     each_with_index{|e, i| result << e unless i.even?}
     return result
   end
+  def to_sentence
+    # a simplified crib from active support
+    case length
+    when 0
+      ""
+    when 1
+      self[0].to_s
+    when 2
+      "%s and %s" % [self[0], self[1]]
+    else
+      self[0..-2].join(", ") + ", and " + self[-1]
+    end
+  end
 end
 
 
