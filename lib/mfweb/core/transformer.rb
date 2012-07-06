@@ -31,6 +31,12 @@ class Transformer
     handle @root
   end
 
+  def self.to_html anElement
+    result = HtmlEmitter.new
+    self.new(result, anElement).render
+    return result.out
+  end
+
 
   def handle aNode
     if aNode.cdata?
