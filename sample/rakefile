@@ -5,7 +5,7 @@ require 'mfweb/article'
 verbose(true)
 
 BUILD_DIR = 'build/'
-CSS_PATHS = %w[css ../mfweb/css]
+CSS_PATHS = %w[css ../css]
 
 require 'sampleSite'
 Mfweb::Core::Site.init(SampleSite.new)
@@ -18,23 +18,24 @@ CLOBBER.include BUILD_DIR
 
 desc "build articles"
 task :articles
-sassTask 'articles/article.scss', 'articles', :articles
+sassTask '../css/article.scss', 'articles', :articles
 build_simple_articles(Mfweb::Core::Site.skeleton.with_css('article.css'))
 
-# FileList['articles/mock/mocksArentStubs.xml'].each do |src|
-# 	target = File.join(BUILD_DIR + 'articles', 'mocksArentStubs.html')
-# 	file target => [src]  + article_deps do
-# 		require 'paper'
-#     skeleton = Site.skeleton.with_css('article.css')
-# 		maker = PaperMaker.new(src, target, skeleton)
-#     maker.bib_server = Bibliography.new 'bib.xml'
-# 		maker.code_server = CodeServer.new 'articles/mock/'
-# 		maker.run
-# 	end
-# 	task :articles => target
-# end
+FileList['articles/flexible/flexible-article.xml'].each do |src|
+	target = File.join(BUILD_DIR + 'articles', 'flexible.html')
+	file target => [src] do
+    skeleton = Mfweb::Core::Site.skeleton.with_css('flexible.css')
+		maker = Mfweb::Article::ArticleMaker.new(src, target, skeleton)
+    # need to set up the demonstration of these
+    #maker.bib_server = Bibliography.new 'bib.xml'
+		#maker.code_server = CodeServer.new 'articles/mock/'
+    maker.run
+	end
+	task :articles => target
+  sassTask 'articles/flexible/flexible.scss', 'articles', :articles
+end
 
-                 
+
 
 
 

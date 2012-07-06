@@ -1,0 +1,9 @@
+@import 'article';
+
+/* add additional css rules. Scss will add/override these from the standard article rules */
+
+.paperBody {
+  p {
+    color: green;
+  }
+}

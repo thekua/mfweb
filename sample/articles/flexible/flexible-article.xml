@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<paper>
+<title>Flexible Article</title>
+<credits>by Foo Barley</credits>
+<version date="2012-05-21">First edition</version>
+<author>
+  <author-name>Foo Barley</author-name>
+  <author-url>http://google.com</author-url>
+  <author-bio>
+    <p>Brief author bio here. Include an avatar-like photo.</p>
+  </author-bio>
+  <author-photo src="mf.jpg" />
+</author>
+
+<abstract>
+This is a variant of the simple article, to demonstrate how to do more
+flexible handling should the default options in the simple article not
+be appropriate for you
+</abstract>
+
+<body>
+  <section>
+    <h>css</h>
+    <p>This article can have more involved css allowing me to
+    have my text show in green.</p>
+  </section>
+</body>
+</paper>
