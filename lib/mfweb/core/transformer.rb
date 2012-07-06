@@ -39,7 +39,9 @@ class Transformer
 
 
   def handle aNode
-    if aNode.cdata?
+    if nil == aNode
+      handle_nil
+    elsif aNode.cdata?
       handleCdataNode(aNode)
     elsif aNode.text?
       handleTextNode(aNode)
@@ -111,6 +113,10 @@ class Transformer
   def handleCdataNode aNode 
     output = aNode.content
     @html.cdata(output)
+  end
+
+  def handle_nil
+    # shrug
   end
 
   def handleEntityRef aNode
