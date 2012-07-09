@@ -48,8 +48,8 @@ module HtmlUtils
   end
 
   def pick_photo arg
-    tags = (arg.instance_of? Array) ? arg : [arg]
-    m = lambda {|regexp| tags.any? {|t| regexp =~ t.name}}
+    tags = Array(arg)
+    m = lambda {|regexp| tags.any? {|t| t.match(regexp)}}
     return case
            when m.call(/noSQL/), m.call(/database/)
              '../img/mesa.png'
