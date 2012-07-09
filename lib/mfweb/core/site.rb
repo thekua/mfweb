@@ -10,7 +10,7 @@ class Site
     end
   end
   def self.initialized?
-    defined? @@master && @master
+    (defined? @@master) && @@master
   end
   def self.method_missing name, *args
     master.send name, *args
