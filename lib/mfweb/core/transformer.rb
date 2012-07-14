@@ -90,7 +90,7 @@ class Transformer
   def copy_some_attributes anElement, mappingHash
     result = {}
     mappingHash.each do |k,v|
-      result[v] = anElement[k] if anElement.key?(k)
+      result[v] = anElement[k] if anElement.key?(k.to_s)
     end
     return result
   end

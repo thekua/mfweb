@@ -13,12 +13,11 @@ class HtmlEmitter
   def close
     @out.close
   end
-  def HtmlEmitter.open file, &block
-    @out = File.new(file)
-    yield
-    close
+	def HtmlEmitter.open fileName, &block
+    File.open(fileName, 'w') do |out|
+      yield self.new(out)
+    end
   end
-
   def element(name, attributes=nil, isInline=true, &block)
     #ignores isInline arg which is kept for compatability
     if SPAN_ELEMENTS.include? name
@@ -166,10 +165,10 @@ class HtmlEmitter
   def include fileName
     File.foreach(fileName) {|line| self << line}
   end
-  def div css_class = nil, &block
-    attr = class_attr css_class
-    element_block "div", attr, &block   
-  end
+	def div css_class = nil, attrs = {}, &block
+    attrs['class'] = css_class if css_class
+		element_block "div", attrs, &block		
+	end
   def div_id id, &block
     attr = {:id => id}
     element_block "div", attr, &block
