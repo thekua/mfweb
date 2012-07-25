@@ -1,119 +1,221 @@
 <?xml version="1.0"?>
 <paper>
 <title>Simple Article</title>
-<credits>by Foo Barley</credits>
-<version date="2012-06-28">Another rewrite. Note that the most recent
-version goes at the top.</version>
-<version date="2012-05-21">First edition</version>
+<credits>by Martin Fowler</credits>
+<!-- I add a new version element each time I make a significant update
+to the article. The most recent update should go at the top, it's date
+is used as the date of the article. There must be at least one version
+element and all version elements need a date. -->
+<version date="2012-07-24">Rewrite to provide a fuller example</version>
+<version date="2012-07-04">First draft stub</version>
 <author>
-  <author-name>Foo Barley</author-name>
-  <author-url>http://google.com</author-url>
+  <!-- add one <author> element for each author on the article. Only the
+  <author-name> is required, but the other elements are usually useful.-->
+  <author-name>Martin Fowler</author-name>
+  <author-url>http://martinfowler.com</author-url>
   <author-bio>
-    <p>Brief author bio here. Include an avatar-like photo.</p>
+    <p>Author, speaker, and loud-mouth on sofware development. </p>
   </author-bio>
   <author-photo src="mf.jpg" />
 </author>
 
 <abstract>
-This article is an example of how to build an article using this
-toolchain. There is both explanation and example here. This abstract
-section should be a brief summary that should summarize why the
-reader should be interested in getting into the rest of the article.
+Explains how to use this tool-chain for writing simple articles.
 </abstract>
 
 <body>
-<p>The article can begin with some summary paragraphs before the
-sections begin.</p>
-<p>I still have to work on providing more explanation and examples of
-how the publishing toolchain works.</p>
+  <!-- You can place <p> elements before the first <section> element, but
+       once you have a section, all remaining blocks should be inside
+       a section. -->
+<p>This is an example of a simple article that uses my xml-to-html
+toolchain. It acts on two levels, you can read the html to understand
+how things are put together, and you can also look at the XML source
+to understand how that looks. I have some comments in the XML source
+that add some further information about the XML elements that are used.</p>
 <section>
-<h>Sections</h>
-
-<p>Documents are divided into sections using the section tag with an h
-tag used for the section heading</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum. </p>
-
-<section>
-<h>Nested Section</h>
-
-<p>Rather than HTML's numbered headings, in this format I nest
-sections inside each other - the level of the heading is derived from
-the nesting.</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.</p>
-
+<h>Making your own document folder</h>
+<p>The sample folder here is a simple sample to get you started and
+provide some examples to base your own articles from. Rather than
+modify this sample folder in the mfweb repo, it's best to create your
+own work folder in a separate repo. You can start this simply by
+copying the sample folder into another location.</p>
+<p>To get your new folder to build in that location, you will need to
+make a change to the rakefile that controls the build process to point
+to the mfweb directory. Look for the line <code>MFWEB_DIR =
+'../'</code> at the top of the file and change the path to point to
+location of the mfweb folder. Once you've done that you should be able
+to execute <code>rake</code> in the new location and that will rebuild
+the sample files.</p>
+<p>The rakefile controls the build of the articles. There are comments
+in the file to explain what various things do if you'd like to tweak
+it.</p>
 </section>
+<section>
+  <h>Simple and Flexible Articles</h>
+  <p>The toolchain supports two styles of writing articles, simple and
+  flexible. Simple articles have limited code inclusion and packaging
+  capabilities, and are best used for articles that don't need to
+  connect to a live code base, don't need to be grouped into a
+  single folder with their diagrams code etc, and don't need any
+  custom handling for transformations or css.</p>
+  <p>In this web page, I'll just describe the facilities of the simple
+  article, there is <a href = "flexible.html">another web page to
+  discuss flexible articles</a>. Simple articles should have their
+  source xml file placed in <code>your-folder/articles/simple</code>.
+  All xml files found in that folder will be transformed into
+  <code>your-folder/build/articles</code>. The only thing that's
+  different between a simple article and a flexible article is the way
+  the articles sources are organized - they both look the same to the
+  reader.</p>
+</section>
+<section>
+  <h>Overall Structure of an Article</h>
+  <p>Simple articles have a top-level element of <code>paper</code>.
+  The child elements of paper begin with various header elements,
+  followed by the <code>body</code> element that contains the body of
+  the article, and finally an optional <code>appendix</code>.</p>
+  <section>
+    <h>Header Elements</h>
+    <p>The example article shows off the various header elements.
+    These should be fairly self-explanatory. It's worth highlighting
+    that you need at least one <code>version</code> element, as the
+    first <code>version</code> sets the date of the article.</p>
+  </section>
+  <section>
+    <h>Body and appendix sections</h>
+    <p>The body of the article should include the core content of the
+    article. The body can be divided into sections. Each section must
+    start with an <code>h</code> element and then 
+    block elements. You may have block elements before the first
+    section. You may also nest sections within each other.</p>
+    <sidebar>
+      <p>You can specify sidebars - handy for call outs and links</p>
+    </sidebar>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+    do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+    enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat
+    nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <soundbite>Soundbites are like sidebars, but for the semantics of
+    pull quotes. </soundbite>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+    do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+    enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat
+    nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>The appendix can also have sections in the same way as the body.</p>
+    </section>
+</section>
+<section>
+  <h>Basic elements</h>
+  <p>The basic elements of an article are mostly copied from HTML.
+  Block elements include <code>p</code>, 
+  <code>ul</code> and <code>li</code>. Inline
+  elements include <code>code</code>, <code>i</code>, <code>b</code>,
+  <code>a</code>, <code>sub</code>, <code>sup</code>, and
+  <code>br</code>.</p>
+</section>
+<section>
+  <h>Code listings</h>
+  <p>A particularly important feature of the toolchain is its ability
+  to import code from live code projects. This allows me to annotate a
+  live code project with marker comments and then extract bits of code
+  from those code trees into the HTML output. To do this properly, you
+  need to use a flexible article, so that you can set up the path of
+  the code tree in the build script, but there is some limited support
+  for code imports for simple articles.</p>
+  <p>The element to use for a code import is <code>insertCode</code>,
+  here is an example of it in use.</p>
+  <insertCode file="simpleArticle/example.rb" fragment="first"
+              label="some code"/>
+  <p>A code fragment can have a label to introduce it. You can also
+  nest code fragments to pick out smaller parts that have been shown
+  in total, such as picking out one line below.</p>
+  <insertCode file="simpleArticle/example.rb" fragment="oneLine"/>
+  <p>I often use the label atrtribute to indicate the context of a
+  code fragment. Usually this context is the name of a class, so there
+  is a crude way to get the code importer to derive the class
+  name.</p>
+   <insertCode file="simpleArticle/example.rb" fragment="second" 
+               useClassName="true"/>
+  <p> Beware that this mechanism is easily confused if you have nested
+  classes in a file.</p>
+  <p>The files you need for code fragments in a simple article must
+  live in <code>articles/simple/code</code>. I like to then use either
+  a file or folder with the same name as the article to help keep code
+  fragments apart. This simplificaiton makes code insertions less
+  useful for simple articles than for flexible artilces. Indeed you
+  don't need code inserts at all, you can just use 
+  <code>pre</code> elements directly. One advantage with code inserts
+  is that they automatically wrap the inserted code inside
+  <code>CDATA</code> nodes.</p>
+</section>
+<section>
+  <h>Tables</h>
+  <p>Tables can be specified using the same elements as HTML, which
+  are copied over directly to the output. However I usually prefer to
+  use semantic markup in these cases.</p>
 </section>
 
 <section>
-<h>Bibliography and Citations</h>
+<h>Referring to other things</h>
+<p>There are a number of mechanisms I use for references to other
+things on web and in older worlds. The simplest web reference is the
+<code>a</code> element, which works just like HTML usually does.</p>
+<p>For a simple reference to a book, eg <book isbn="0321278658">XP
+Explained</book>you can use the <code>book</code> element. This uses an
+isbn to link directly to amazon (using my amazon affiliate
+information so I can buy more Nice Things). For an amazon link that
+<amazon key="B0040JHVCC">isn't a book</amazon>, there is a different
+<code>amazon</code> element.</p>
+<p>To refer to an article in my bliki, there is a
+<code>blikiRef</code> element, so I can easily refer to a <blikiRef
+name="MemoryImage"/> with some very crude pluralization for <blikiRef
+name="MemoryImage" mode="plural"/>.</p>
 
 <p>When building a paper, you can supply a bibliography for citations.
 You can then include a citation either as <cite
 name="cunningham-checks"> a link around text</cite> or just
 stand-alone <cite name="GOF"/>. </p>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum. </p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.</p>
-
-<sidebar>
-
-<p>A small sidebar - handy for call outs and links</p>
-
-</sidebar>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.</p>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-aliquip ex ea commodo consequat. Duis aute irure dolor in
-reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.</p>
 
 </section>
-
+<section>
+  <h>Images</h>
+  <p>Simple inline images <img src="images/simpleArticle/blob.png"
+  height = "12px"/> can be made with an <code>img</code> 
+  element. </p>
+  <p>For more involved figures, you can use a <code>figure</code>
+  element.</p>
+  <figure src="images/simpleArticle/2box.png">Some meaningless diagram
+  with an uninformative caption</figure>
+  <p>Figures can have captions and can be referred to with a
+  <code>figureRef</code> element, which will link to it with a
+  numbered bit of hypertext  like <figureRef
+  ref="images/simpleArticle/2box.png"/></p>
+ <photo src="images/simpleArticle/tower.jpg" 
+         width="200" layout="right">Tower bridge in colorful light</photo>
+  <p>I have a different block element for <code>photo</code>. This can
+  also accept a caption, but doesn't generate a figure number. It can
+  also accept a photo credit, so that the photo is properly
+  attributed.</p>
+   <p>The photo can either be made to float to the right, or be in
+  flow by setting the <code>layout</code> attribute. This generates
+  div blocks for the photo and caption with different css classes.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+    do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+    enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat
+    nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <photo src="images/simpleArticle/tower.jpg" credit="Martin Fowler"
+         width="500" layout="full"/>
+</section>
 
 </body>
 

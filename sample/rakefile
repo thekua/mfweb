@@ -1,26 +1,38 @@
-MFWEB_DIR = '../lib/'
-$: << MFWEB_DIR << 'lib'
-require 'mfweb/core'
-require 'mfweb/article'
+# modify the following line to point to the location of mfweb
+MFWEB_DIR = '../'
+
+BUILD_DIR = 'build/'            # location of html output
+CSS_PATHS = %w[css ../css]      # path for finding SCSS files
+
+$: << MFWEB_DIR + 'lib' << 'lib'      # add mfweb and local lib to ruby search path
 verbose(true)
 
-BUILD_DIR = 'build/'
-CSS_PATHS = %w[css ../css]
-
-require 'sampleSite'
-Mfweb::Core::Site.init(SampleSite.new)
-
-task :default => [:clobber, :articles]
-
+# define clobber task to delete output directory
 require 'rake/clean'
 CLOBBER.include BUILD_DIR
 
+# default task deletes build directory and rebuilds it
+task :default => [:clobber, :articles]
 
+# replace default task with following line to avoid clean rebuilds of output
+# task :default => [:articles]
+
+# define the articles task
 desc "build articles"
 task :articles
+
+require 'mfweb/article'
+require 'sampleSite'
+Mfweb::Core::Site.init(SampleSite.new)
+
+# build article css file from sass source
 sassTask '../css/article.scss', 'articles', :articles
+
+# For simple articles, you need the following block in the rakefile
 build_simple_articles(Mfweb::Core::Site.skeleton.with_css('article.css'))
 
+
+# For flexible articles you need something like this, modified to suit.
 FileList['articles/flexible/flexible-article.xml'].each do |src|
 	target = File.join(BUILD_DIR + 'articles', 'flexible.html')
 	file target => [src] do
