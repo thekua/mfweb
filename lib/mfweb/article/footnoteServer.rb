@@ -60,11 +60,11 @@ class Footnote
   end
 
   def simple?
-    @element.css('H').empty?
+    nil == head
   end
 
   def head
-    @element.xpath('H').first
+    @element.xpath('H|h').first
   end
 
   def key
@@ -73,7 +73,7 @@ class Footnote
   
   def body
     simple? ? @element.children :
-      @element.elements.reject{|e| "H" == e.name }
+      @element.elements.reject{|e| "H" == e.name || 'h' == e.name }
   end
   
   def to_s
