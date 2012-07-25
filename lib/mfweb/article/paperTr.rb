@@ -279,9 +279,9 @@ class PaperTransformer < Mfweb::Core::Transformer
   end
   def handle_figureRef anElement
     apply anElement
-    @html.text ' Figure '
     ref = anElement['ref']
-    @html.a_ref('#' + a_name(ref)) {@html.text(@figureReader.number(ref))}
+    ref_text = ' Figure ' + @figureReader.number(ref)
+    @html.a_ref('#' + a_name(ref)) {@html.text ref_text}
   end 
   def handle_pre anElement
     @html.element('pre') {apply anElement}
