@@ -106,5 +106,8 @@ def build_simple_articles skeleton = nil
     task :articles => target
   end
   copyGraphicsTask 'articles/simple/images', 'articles', :articles
-  
+  FileList['articles/simple/images/*'].each do |dir|
+    target_dir = "articles/images/" + dir.pathmap("%n")
+    copyGraphicsTask dir, target_dir, :articles
+  end
 end
