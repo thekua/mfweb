@@ -47,6 +47,8 @@ Explains how to use this tool-chain for writing simple articles.
 </ul>
 </li>
 
+<li><a href = '#MarkupElements'>Markup elements</a>
+<ul>
 <li><a href = '#BasicElements'>Basic elements</a></li>
 
 <li><a href = '#CodeListings'>Code listings</a></li>
@@ -55,7 +57,13 @@ Explains how to use this tool-chain for writing simple articles.
 
 <li><a href = '#ReferringToOtherThings'>Referring to other things</a></li>
 
-<li><a href = '#Figures'>Figures</a></li>
+<li><a href = '#Images'>Images</a></li>
+
+<li><a href = '#Quotes'>Quotes</a></li>
+
+<li><a href = '#Footnotes'>Footnotes</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -156,7 +164,9 @@ it.</p>
 
 <p>The appendix can also have sections in the same way as the body.</p>
 <hr class = 'topSection'></hr>
-<h2 id = 'BasicElements'>Basic elements</h2>
+<h2 id = 'MarkupElements'>Markup elements</h2>
+
+<h3 id = 'BasicElements'>Basic elements</h3>
 
 <p>The basic elements of an article are mostly copied from HTML.
   Block elements include <code>p</code>, 
@@ -164,8 +174,8 @@ it.</p>
   elements include <code>code</code>, <code>i</code>, <code>b</code>,
   <code>a</code>, <code>sub</code>, <code>sup</code>, and
   <code>br</code>.</p>
-<hr class = 'topSection'></hr>
-<h2 id = 'CodeListings'>Code listings</h2>
+
+<h3 id = 'CodeListings'>Code listings</h3>
 
 <p>A particularly important feature of the toolchain is its ability
   to import code from live code projects. This allows me to annotate a
@@ -213,21 +223,21 @@ it.</p>
   <code>pre</code> elements directly. One advantage with code inserts
   is that they automatically wrap the inserted code inside
   <code>CDATA</code> nodes.</p>
-<hr class = 'topSection'></hr>
-<h2 id = 'Tables'>Tables</h2>
+
+<h3 id = 'Tables'>Tables</h3>
 
 <p>Tables can be specified using the same elements as HTML, which
   are copied over directly to the output. However I usually prefer to
   use semantic markup in these cases.</p>
-<hr class = 'topSection'></hr>
-<h2 id = 'ReferringToOtherThings'>Referring to other things</h2>
+
+<h3 id = 'ReferringToOtherThings'>Referring to other things</h3>
 
 <p>There are a number of mechanisms I use for references to other
 things on web and in older worlds. The simplest web reference is the
 <code>a</code> element, which works just like HTML usually does.</p>
 
 <p>For a simple reference to a book, eg <a href = 'http://www.amazon.com/gp/product/0321278658?ie=UTF8&amp;tag=martinfowlerc-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321278658'>XP
-Explained</a><img alt = '' border = '0' height = '1' src = 'http://www.assoc-amazon.com/e/ir?t=martinfowlerc-20&amp;l=as2&amp;o=1&amp;a=0321601912' style = 'border:none !important; margin:0px !important;' width = '1'></img>you can use the <code>book</code> element. This uses an
+Explained</a><img alt = '' border = '0' height = '1' src = 'http://www.assoc-amazon.com/e/ir?t=martinfowlerc-20&amp;l=as2&amp;o=1&amp;a=0321601912' style = 'border:none !important; margin:0px !important;' width = '1'></img> you can use the <code>book</code> element. This uses an
 isbn to link directly to amazon (using my amazon affiliate
 information so I can buy more Nice Things). For an amazon link that
 <a href = 'http://www.amazon.com/gp/product/B0040JHVCC?ie=UTF8&amp;tag=martinfowlerc-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B0040JHVCC'>isn't a book</a><img alt = '' border = '0' height = '1' src = 'http://www.assoc-amazon.com/e/ir?t=martinfowlerc-20&amp;l=as2&amp;o=1&amp;a=0321601912' style = 'border:none !important; margin:0px !important;' width = '1'></img>, there is a different
@@ -239,8 +249,8 @@ information so I can buy more Nice Things). For an amazon link that
 <p>When building a paper, you can supply a bibliography for citations.
 You can then include a citation either as <a href = 'http://c2.com/ppr/checks.html'> a link around text</a> or just
 stand-alone <a href = 'http://www.amazon.com/exec/obidos/ASIN/0201633612'>[Gang of Four]</a>. </p>
-<hr class = 'topSection'></hr>
-<h2 id = 'Figures'>Figures</h2>
+
+<h3 id = 'Images'>Images</h3>
 
 <p>Simple inline images <img height = '12px' src = 'images/simpleArticle/blob.png'></img> can be made with an <code>img</code> 
   element. </p>
@@ -286,14 +296,50 @@ stand-alone <a href = 'http://www.amazon.com/exec/obidos/ASIN/0201633612'>[Gang 
 <p class = 'photoCaption'></p>
 </div>
 
+<h3 id = 'Quotes'>Quotes</h3>
+
+<blockquote>
+<p>Embrace
+  Change</p>
+
+<p class = 'quote-attribution'>-- <a href = 'http://www.amazon.com/exec/obidos/ASIN/0201616416'>Kent Beck</a></p>
+</blockquote>
+
+<p>Quotes act as their own block. The <code>ref</code> attribute is
+  a key into the bibliography, the <code>credit</code> attribute puts
+  accreditation to the quote. Both of the attributes are optional.</p>
+
+<h3 id = 'Footnotes'>Footnotes</h3>
+
+<p>To add a footnote, use a <code>footRef</code> element. <a href = '#footnote-simple'>[1]</a><a href = '#footnote-head'>[2]</a>. Footnotes will be displayed
+  wherever you add a <code>display-footnotes</code> element. </p>
+
 <hr class = 'bodySep'></hr>
 </div>
 
 <div class = 'appendix'><hr class = 'topSection'></hr>
-<h2 id = 'BackMaterial'>Back material</h2>
+<h2 id = 'Appendix'>Appendix</h2>
 
 <p>The appendix is separated and rendered slightly differently. It's
 good for secondary items, acknowledgements, and the like.</p>
+
+<div class = 'footnote-list'>
+<h2>Footnotes</h2>
+
+<div class = 'footnote-list-item' id = 'footnote-simple'>
+<p><span class = 'num'>1: </span>Footnotes can be written in a
+  <code>footnote-list</code> at the end of the paper. Simple footnotesxs
+  like this are just inline elements and text inside the
+  <code>footnot</code>element. I use this style for single-paragraph footnotes.
+</p>
+</div>
+
+<div class = 'footnote-list-item' id = 'footnote-head'>
+<h3 class = 'head-text'>2: Footnote heading</h3>
+
+<p>Longer footnotes can have an optional heading and contain any block elements.</p>
+</div>
+</div>
 </div>
 
 <div class = 'appendix'>

@@ -111,6 +111,8 @@ it.</p>
     </section>
 </section>
 <section>
+  <h>Markup elements</h>
+<section>
   <h>Basic elements</h>
   <p>The basic elements of an article are mostly copied from HTML.
   Block elements include <code>p</code>, 
@@ -167,8 +169,8 @@ it.</p>
 things on web and in older worlds. The simplest web reference is the
 <code>a</code> element, which works just like HTML usually does.</p>
 <p>For a simple reference to a book, eg <book isbn="0321278658">XP
-Explained</book>you can use the <code>book</code> element. This uses an
-isbn to link directly to amazon (using my amazon affiliate
+Explained</book> you can use the <code>book</code> element. This uses an
+<code>isbn</code> attribute to link directly to amazon (using my amazon affiliate
 information so I can buy more Nice Things). For an amazon link that
 <amazon key="B0040JHVCC">isn't a book</amazon>, there is a different
 <code>amazon</code> element.</p>
@@ -216,18 +218,40 @@ stand-alone <cite name="GOF"/>. </p>
   <photo src="images/simpleArticle/tower.jpg" credit="Martin Fowler"
          width="500" layout="full"/>
 </section>
-
+<section>
+  <h>Quotes</h>
+  <quote ref = "beckXPE" credit = "Kent Beck"><p>Embrace
+  Change</p></quote>
+  <p>Quotes act as their own block. The <code>ref</code> attribute is
+  a key into the bibliography, the <code>credit</code> attribute puts
+  accreditation to the quote. Both of the attributes are optional.</p>
+</section>
+<section>
+  <h>Footnotes</h>
+  <p>To add a footnote, use a <code>footRef</code> element. <footRef
+  key="simple"/><footRef key = "head"/>. Footnotes will be displayed
+  wherever you add a <code>display-footnotes</code> element. </p>
+</section>
+</section>
 </body>
 
-<appendix>
-
+<appendix>  
 <section>
-<H>Back material</H>
-
+<h>Appendix</h>
 <p>The appendix is separated and rendered slightly differently. It's
 good for secondary items, acknowledgements, and the like.</p>
-
 </section>
-
+<display-footnotes/>
 </appendix>
+<footnote-list>
+  <footnote key="simple">Footnotes can be written in a
+  <code>footnote-list</code> at the end of the paper. Simple footnotesxs
+  like this are just inline elements and text inside the
+  <code>footnot</code>element. I use this style for single-paragraph footnotes.
+</footnote>
+  <footnote key = "head">
+    <h>Footnote heading</h>
+    <p>Longer footnotes can have an optional heading and contain any block elements.</p>
+  </footnote>
+</footnote-list>
 </paper>
