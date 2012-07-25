@@ -1,4 +1,5 @@
 require 'stringio'
+require 'mfweb/core'
 
 require 'mfweb/article/articleMaker'
 require 'mfweb/article/paperTr'
