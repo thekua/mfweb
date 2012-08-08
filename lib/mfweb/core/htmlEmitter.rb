@@ -140,6 +140,10 @@ class HtmlEmitter
     attr = class_attr css_class
     element_span 'td', attr, &block
   end
+  def th(css_class = nil,&block)
+    attr = class_attr css_class
+    element_span 'th', attr, &block
+  end
 
   def col (width_percent = nil, &block)
     attrs = {'valign' => 'top'}
