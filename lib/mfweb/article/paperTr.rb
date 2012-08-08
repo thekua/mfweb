@@ -52,21 +52,10 @@ class PaperTransformer < Mfweb::Core::Transformer
   end
 
   def handle_title anElement
-    @html.h(1) {render_full_title}
-  end
-  def render_full_title
-    title_element = xpath_only('//paper/title')
-    subtitle = xpath_only('//paper/subtitle')
-    if subtitle 
-      @html << title_element.text + ": " 
-      @html.element('br'){}
-      @html << subtitle.text
-    else
-      @html << title_element.text
-    end
+    @html.h(1) {apply anElement}
   end
   def handle_subtitle anElement
-    #ignore - handled with title
+    @html.p("subtitle") {apply anElement}
   end
   def handle_paper anElement
     @figureReader = FigureReader.new anElement

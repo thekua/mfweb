@@ -19,6 +19,11 @@ h1, h2, h3 {
   font-family: $sans;
 }
 
+p.subtitle {
+  @extend h1;
+  font-size: 120%;
+}
+
 hr.topSection {
   border-top: thick solid $dk-purple;
   margin: 3em 50% 0px 0px;
