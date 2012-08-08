@@ -93,7 +93,7 @@ def build_simple_articles skeleton = nil
     target = src.pathmap(BUILD_DIR + 'articles/%n.html')
     file target => [src] do |t|
       maker = Mfweb::Article::ArticleMaker.new t.prerequisites[0], t.name, skeleton
-      maker.bib_server = Mfweb::Article::Bibliography.new 'bib.xml'
+      maker.bib_server = Mfweb::Article::Bibliography.new 'bib.xml', src
       maker.code_server = Mfweb::Article::CodeServer.new 'articles/simple/code/'   
       maker.footnote_server = Mfweb::Article::FootnoteServer.new src
       begin

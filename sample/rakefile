@@ -56,6 +56,10 @@ end
 
 
 
+task :test do
+  require 'rake/runtest'
+  Rake.run_tests "../test/**/*Tester.rb"
+end
 
 task :diff do
   cd "../mfweb"

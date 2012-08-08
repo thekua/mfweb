@@ -7,14 +7,14 @@ module Mfweb::Article
 # puts in hyperlinks to books and urls in the bibliography.
 
 class Bibliography
-  def initialize file = nil
+  def initialize *files
     @entries = {}
-    load_file file if file
+    files.each {|f| load_file f}
   end
   def load_file file
     if FileTest.exists? file
       root =  MfXml.root(File.new(file))
-      root.xpath('//ref').each {|e| load_bib_entry e}
+      root.xpath('//bibliography/ref').each {|e| load_bib_entry e}
     else
       puts $deferr, "Unable to find bibiography file: " + file
     end

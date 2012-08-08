@@ -183,6 +183,21 @@ name="MemoryImage" mode="plural"/>.</p>
 You can then include a citation either as <cite
 name="cunningham-checks"> a link around text</cite> or just
 stand-alone <cite name="GOF"/>. </p>
+<p>For simple articles, the bibliography section must exist either in
+the article itself, or in a file called <code>bib.xml</code> in the
+root of the file tree.</p>
+<p>My processing of the bibliography is limited, as all
+I want is links. The bibliography consists of a list of
+<code>ref</code> elements. The processor looks for a
+<code>url</code>element embedded somewhere in the ref element, and
+uses that. Failing that it looks to see if there's a <code>book</code>
+element in there, and if that book contains an <code>isbn</code>
+element. If so it forms a url to amazon using that isbn. Everything
+else is ignored as I find that with web material, only links count.
+The advantage of pulling links out into a separate area is if you have
+multiple links to the same url, then you only have one place to change
+should the url change. These days I prefer to use <code>book</code>
+elements for links to books.</p>
 
 
 </section>
@@ -245,13 +260,26 @@ good for secondary items, acknowledgements, and the like.</p>
 </appendix>
 <footnote-list>
   <footnote key="simple">Footnotes can be written in a
-  <code>footnote-list</code> at the end of the paper. Simple footnotesxs
+  <code>footnote-list</code> at the end of the paper. Simple footnotes
   like this are just inline elements and text inside the
-  <code>footnot</code>element. I use this style for single-paragraph footnotes.
+  <code>footnote</code> element. I use this style for single-paragraph footnotes.
 </footnote>
   <footnote key = "head">
     <h>Footnote heading</h>
     <p>Longer footnotes can have an optional heading and contain any block elements.</p>
   </footnote>
 </footnote-list>
+<bibliography>
+<ref name="beckXPE">
+		<cite>[Beck XPE]</cite>
+		<book>
+			<author>Kent Beck</author>
+			<title>Extreme Programming Explained: Embrace Change</title>
+			<pub>Addison Wesley</pub>
+			<isbn>0201616416</isbn>
+			<date>2000</date>
+		</book>
+</ref>
+</bibliography>
+
 </paper>

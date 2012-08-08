@@ -1,0 +1,31 @@
+<bibliography>
+<ref name="agile-manifesto">
+	<url>http://www.agileManifesto.org</url>
+</ref>
+
+	<ref name="cunningham-checks">
+		<web-paper>
+			<author>Cunningham</author>
+			<title>Checks</title>
+			<url>http://c2.com/ppr/checks.html</url>
+		</web-paper>
+	</ref>
+<ref name="cvs">
+	<url>http://www.cvshome.org/</url>
+</ref>
+
+<ref name="fowler-ap">
+	<isbn>0201895420</isbn>
+</ref>
+
+<ref name="GOF">
+		<cite>[Gang of Four]</cite>
+		<book>
+			<author>Gamma, Helm, Johnson, and Vlissidies</author>
+			<title>Design Patterns</title>
+			<pub>Addison Wesley</pub>
+			<isbn>0201633612</isbn>
+			<date>1995</date>
+		</book></ref>
+
+</bibliography>

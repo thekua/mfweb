@@ -5,3 +5,10 @@ task :default do
     Rake::Task['articles'].invoke
   end
 end
+
+task :test do
+  $: << 'lib'
+  require 'rake/runtest'
+  Rake.run_tests "test/**/*Tester.rb"
+end
+
