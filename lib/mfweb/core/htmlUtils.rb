@@ -20,7 +20,7 @@ module HtmlUtils
   def include_abs fileName
     case File.extname(fileName)
     when ".html" then File.read(fileName)
-    when ".markdown"
+    when ".markdown", ".md"
       require 'kramdown'
       mdown = ERB.new(File.read(fileName)).result(binding)
       Kramdown::Document.new(mdown).to_html
