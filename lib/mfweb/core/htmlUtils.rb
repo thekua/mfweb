@@ -82,6 +82,11 @@ module HtmlUtils
   end
 end
 
+def informit isbn, text
+  %[<a href="http://click.linksynergy.com/fs-bin/click?id=tEHDyk1X8h0&subid=&offerid=145238.1&type=10&tmpid=3559&RD_PARM1=http%253A%252F%252Fwww.informit.com%252Fstore%252Fproduct.aspx%253Fisbn%253D#{isbn}">#{text}</a>
+<img alt="icon" width="1" height="1" src="http://ad.linksynergy.com/fs-bin/show?id=tEHDyk1X8h0&bids=145238.1&type=10">]
+end
+
   def css fileName
     %[<link href = "#{fileName}" rel = "stylesheet" type = "text/css"/>]
   end
