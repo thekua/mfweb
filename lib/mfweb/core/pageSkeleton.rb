@@ -5,6 +5,7 @@ class PageSkeleton
     @header = header
     @footer = footer
     @css = cssArray
+    @js = []
     @banner_photo = nil
   end
   def emit aStream, title
@@ -22,6 +23,7 @@ class PageSkeleton
           yield @html
         end
         @html << @footer
+        @js.each {|url| @html.js url}
       end
     end
   end
@@ -47,6 +49,11 @@ class PageSkeleton
   end
   def to_s
     "Skeleton with css: %s" % @css
+  end
+  def with_js *arg
+    result = self.dup
+    result.instance_variable_set(:@js, arg.flatten)
+    return result
   end
   
 end
