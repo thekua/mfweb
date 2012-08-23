@@ -187,10 +187,6 @@ class HtmlEmitter
     attrs = {:href => uri, :rel => 'stylesheet', :type => 'text/css'}
     element_block('link', attrs){}
   end
-  def js url
-    attrs = {:src => url, :type => 'text/javascript'}
-    element_block('script', attrs)
-  end
   def markdown src
     require 'kramdown'
     @out << Kramdown::Document.new(src).to_html
