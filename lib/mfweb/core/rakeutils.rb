@@ -78,13 +78,22 @@ def copyGraphicsTask srcDir, targetDirSuffix, taskSymbol
   end
 end
 
-def markdown_task src, target, css = 'global.css', title = ""
-  file target => [src, :base] do
-    puts "kramdown #{src}"
-    require 'kramdown'
-    Site.skeleton.with_css(css).emit_file(target, title) do |html|
-      html << Kramdown::Document.new(File.read(src)).to_html
-    end
+def markdown_task src, relativeTargetDir, taskSymbol, title
+  targetDir = BUILD_DIR + relativeTargetDir
+  target = File.join(targetDir, src.pathmap('%n.html'))
+  task taskSymbol => target
+  file target => [src, :base] do |t|
+    skeleton = Site.skeleton.with_css('/global.css')
+    build_markdown src, target, skeleton, title
+  end
+end
+
+
+def build_markdown src, target, skeleton, title
+ puts "kramdown #{src} -> #{target}"
+  require 'kramdown'
+  skeleton.emit_file(target, title) do |html|
+    html << Kramdown::Document.new(File.read(src)).to_html
   end
 end
 
