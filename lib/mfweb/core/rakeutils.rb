@@ -90,7 +90,7 @@ end
 
 
 def build_markdown src, target, skeleton, title
- puts "kramdown #{src} -> #{target}"
+  puts "kramdown #{src} -> #{target}"
   require 'kramdown'
   skeleton.emit_file(target, title) do |html|
     html << Kramdown::Document.new(File.read(src)).to_html

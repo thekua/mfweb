@@ -145,10 +145,14 @@ class TransformerPageRenderer
   end
 
   def run
+    load
+    @skeleton.emit(@html, @transformer.title_bar_text){|html| render_body}    
+  end
+
+  def load
     @root = MfXml.root(File.new(@in_file))
     @html = HtmlEmitter.new(File.new(@out_file, 'w'))
     @transformer = create_transformer
-    @skeleton.emit(@html, @transformer.title_bar_text){|html| render_body}    
   end
 
   def render_body

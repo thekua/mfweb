@@ -17,10 +17,12 @@ class ArticleMaker < Mfweb::Core::TransformerPageRenderer
     @code_dir = './'
   end
 
+  def load
+    super
+    @skeleton = @skeleton.as_draft if 'dev' == @root['status']
+  end
+
   def render_body
-    if 'dev' == @root['status']
-      render_draft_notice
-    end
     @transformer.render
     @transformer.render_revision_history
   end
@@ -34,13 +36,6 @@ class ArticleMaker < Mfweb::Core::TransformerPageRenderer
              when 'pattern' then PatternHandler.new(@html, @root, self)
              else raise "no transformer for #{@in_file}"
              end
-    end
-  end
-
-  def render_draft_notice
-    @html.div("draft-notice") do
-      @html.h(1) {@html.text "Draft"}
-      @html.p {@html.text "This article is a draft.<br/>Please do not share or link to this URL until I remove this notice"}
     end
   end
 
