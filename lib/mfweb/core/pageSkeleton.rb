@@ -7,6 +7,7 @@ class PageSkeleton
     @css = cssArray
     @js = []
     @banner_photo = nil
+    @is_draft = false
   end
   def emit aStream, title
     @html = aStream.kind_of?(HtmlEmitter) ? aStream : 
@@ -20,6 +21,7 @@ class PageSkeleton
       @html.body do
         @html << @header
         @html.element('div', :id => 'content') do
+          emit_draft_notice if @is_draft
           yield @html
         end
         @html << @footer
@@ -55,6 +57,18 @@ class PageSkeleton
     result.instance_variable_set(:@js, arg.flatten)
     return result
   end
+  def as_draft
+    result = self.dup
+    result.instance_variable_set(:@is_draft, true)
+    return result
+  end
+  def emit_draft_notice
+    @html.div("draft-notice") do
+      @html.h(1) {@html.text "Draft"}
+      @html.p {@html.text "This article is a draft.<br/>Please do not share or link to this URL until I remove this notice"}
+    end
+  end
+    
   
 end
 end
