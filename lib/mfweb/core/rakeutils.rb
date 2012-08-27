@@ -96,7 +96,6 @@ def build_markdown src, target, skeleton, title
     html << Kramdown::Document.new(File.read(src)).to_html
   end
 end
-
 class SimpleArticleBuilder
   def run
     FileList['articles/simple/*.xml'].each do |src|
@@ -104,7 +103,7 @@ class SimpleArticleBuilder
       file target => [src] do |t|
         maker = Mfweb::Article::ArticleMaker.new( t.prerequisites[0], 
                                                   t.name, skeleton)
-        maker.bib_server = Mfweb::Article::Bibliography.new 'bib.xml', src
+        maker.bib_server = Mfweb::Article::Bibliography.new src
         maker.code_server = Mfweb::Article::CodeServer.new 'articles/simple/code/'   
         maker.footnote_server = Mfweb::Article::FootnoteServer.new src
         customize_maker maker, src

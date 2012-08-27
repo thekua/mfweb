@@ -181,8 +181,8 @@ name="MemoryImage" mode="plural"/>.</p>
 
 <p>When building a paper, you can supply a bibliography for citations.
 You can then include a citation either as <cite
-name="cunningham-checks"> a link around text</cite> or just
-stand-alone <cite name="GOF"/>. </p>
+name="beckXPE"> a link around text</cite> or just
+stand-alone <cite name="beckXPE"/>. </p>
 <p>For simple articles, the bibliography section must exist either in
 the article itself, or in a file called <code>bib.xml</code> in the
 root of the file tree.</p>
@@ -196,8 +196,11 @@ element. If so it forms a url to amazon using that isbn. Everything
 else is ignored as I find that with web material, only links count.
 The advantage of pulling links out into a separate area is if you have
 multiple links to the same url, then you only have one place to change
-should the url change. These days I prefer to use <code>book</code>
-elements for links to books.</p>
+should the url change. </p>
+<p>On the whole the bibilography processing is rather more messy than
+I would like and I'm tempted to junk it entirely. Most of my
+references these days are to links or books, for which I can use
+regular <code>a</code> and <code>book</code> elements.</p>
 
 
 </section>
