@@ -97,26 +97,41 @@ def build_markdown src, target, skeleton, title
   end
 end
 
-def build_simple_articles skeleton = nil
-  FileList['articles/simple/*.xml'].each do |src|
-    target = src.pathmap(BUILD_DIR + 'articles/%n.html')
-    file target => [src] do |t|
-      maker = Mfweb::Article::ArticleMaker.new t.prerequisites[0], t.name, skeleton
-      maker.bib_server = Mfweb::Article::Bibliography.new 'bib.xml', src
-      maker.code_server = Mfweb::Article::CodeServer.new 'articles/simple/code/'   
-      maker.footnote_server = Mfweb::Article::FootnoteServer.new src
-      begin
-        maker.run
-      rescue 
-        rm target
-        raise $!
+class SimpleArticleBuilder
+  def run
+    FileList['articles/simple/*.xml'].each do |src|
+      target = src.pathmap(BUILD_DIR + 'articles/%n.html')
+      file target => [src] do |t|
+        maker = Mfweb::Article::ArticleMaker.new( t.prerequisites[0], 
+                                                  t.name, skeleton)
+        maker.bib_server = Mfweb::Article::Bibliography.new 'bib.xml', src
+        maker.code_server = Mfweb::Article::CodeServer.new 'articles/simple/code/'   
+        maker.footnote_server = Mfweb::Article::FootnoteServer.new src
+        customize_maker maker, src
+        begin
+          maker.run
+        rescue 
+          rm target
+          raise $!
+        end
       end
+      task :articles => target
     end
-    task :articles => target
+    copyGraphicsTask 'articles/simple/images', 'articles', :articles
+    FileList['articles/simple/images/*'].each do |dir|
+      target_dir = "articles/images/" + dir.pathmap("%n")
+      copyGraphicsTask dir, target_dir, :articles
+    end
   end
-  copyGraphicsTask 'articles/simple/images', 'articles', :articles
-  FileList['articles/simple/images/*'].each do |dir|
-    target_dir = "articles/images/" + dir.pathmap("%n")
-    copyGraphicsTask dir, target_dir, :articles
+
+  def customize_maker maker, src
+    #hook
   end
+  def skeleton
+    Mfweb::Core::Site.skeleton.with_css('article.css')
+  end
+end
+
+def build_simple_articles 
+  SimpleArticleBuilder.new.run
 end

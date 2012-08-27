@@ -29,7 +29,7 @@ Mfweb::Core::Site.init(SampleSite.new)
 sassTask '../css/article.scss', 'articles', :articles
 
 # For simple articles, you need the following block in the rakefile
-build_simple_articles(Mfweb::Core::Site.skeleton.with_css('article.css'))
+build_simple_articles
 
 
 # For flexible articles you need something like this, modified to suit.
