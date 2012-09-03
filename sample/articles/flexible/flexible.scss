@@ -2,8 +2,23 @@
 
 /* add additional css rules. Scss will add/override these from the standard article rules */
 
-.paperBody {
-  p {
-    color: green;
+table {
+  font-family: $sans;
+  font-size: 80%;
+  margin-top: 2em;
+  th {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+  }
+
+  td {
+    padding: 2px 0 0 10px;
+    line-height: 1.2;
   }
 }
+
+table.db-by-model {
+  font-family: $sans;
+}
+

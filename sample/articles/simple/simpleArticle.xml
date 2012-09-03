@@ -154,7 +154,8 @@ it.</p>
   don't need code inserts at all, you can just use 
   <code>pre</code> elements directly. One advantage with code inserts
   is that they automatically wrap the inserted code inside
-  <code>CDATA</code> nodes.</p>
+  <code>CDATA</code> nodes which means you don't have to worry about
+  escaping XML reserverd  symbols.</p>
 </section>
 <section>
   <h>Tables</h>
@@ -183,9 +184,8 @@ name="MemoryImage" mode="plural"/>.</p>
 You can then include a citation either as <cite
 name="beckXPE"> a link around text</cite> or just
 stand-alone <cite name="beckXPE"/>. </p>
-<p>For simple articles, the bibliography section must exist either in
-the article itself, or in a file called <code>bib.xml</code> in the
-root of the file tree.</p>
+<p>For simple articles, the bibliography section must be in
+the article itself.</p>
 <p>My processing of the bibliography is limited, as all
 I want is links. The bibliography consists of a list of
 <code>ref</code> elements. The processor looks for a
@@ -193,10 +193,7 @@ I want is links. The bibliography consists of a list of
 uses that. Failing that it looks to see if there's a <code>book</code>
 element in there, and if that book contains an <code>isbn</code>
 element. If so it forms a url to amazon using that isbn. Everything
-else is ignored as I find that with web material, only links count.
-The advantage of pulling links out into a separate area is if you have
-multiple links to the same url, then you only have one place to change
-should the url change. </p>
+else is ignored as I find that with web material, only links count.</p>
 <p>On the whole the bibilography processing is rather more messy than
 I would like and I'm tempted to junk it entirely. Most of my
 references these days are to links or books, for which I can use

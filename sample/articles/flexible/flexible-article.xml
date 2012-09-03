@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <paper>
 <title>Flexible Article</title>
-<credits>by Foo Barley</credits>
-<version date="2012-05-21">First edition</version>
+<version date="2012-08-26">First edition</version>
 <author>
-  <author-name>Foo Barley</author-name>
-  <author-url>http://google.com</author-url>
+  <author-name>Martin Fowler</author-name>
+  <author-url>http://martinfowler.com</author-url>
   <author-bio>
-    <p>Brief author bio here. Include an avatar-like photo.</p>
+    <p>Author, speaker, and loud-mouth on sofware development. </p>
   </author-bio>
   <author-photo src="mf.jpg" />
 </author>
@@ -19,10 +18,111 @@ be appropriate for you
 </abstract>
 
 <body>
+  <p>The simple article provides a number of defaults that work well
+  for simple articles. More complicated articles benefit from more
+  flexibility in how they are organized, this article describes these diferences.</p>
+  <p>There is no difference in the main xml elements between simple and
+  flexible articles. The only difference with flexible articles is
+  that you may add new xml elements that are specific to the article
+  and the code to render them to html. This allows you to add semantic
+  markup to the article.</p>
+  <p>The other difference with flexible articles is that they can
+  refer to code and figures in any location, rather than the fixed
+  locatioons of simple articles. This makes it easier to package up an
+  article together with its supporting files in a single folder.
+  Consequentially a flexible article is much easier to use for
+  substantial code samples from a live project.</p>
   <section>
-    <h>css</h>
-    <p>This article can have more involved css allowing me to
-    have my text show in green.</p>
+    <h>The rakefile</h>
+    <p>For simple articles, you don't need to do anything for the
+    build process - just pop the article in
+    <code>articles/simple</code> and bob's your uncle. For flexible
+    articles, however, you do need to write in the rakefile to show
+    how the article is configured. The example rakefile in
+    <code>sample</code> shows how this one is done. Each of the
+    various customizations I talk about below have to be configured
+    using the rakefile.</p>
+    <p>At this point I haven't got around to writing up how the ruby
+    transformation code all works together. You'll need to learn more
+    about this for some of the customizations below - until I write it
+    up ask me.</p>
+  </section>
+  <section>
+    <h>CSS</h>
+    <p>Simple articles use a generic css for styling. If you want some
+    custom styling, you'll need to use a flexible article.</p>
+    <p>I use scss to write my css as I find it helps reduce
+    duplication and improve the structure of my css. To get a css file
+    to convert you need a sassTask line. You tell the task the source
+    scss file, the target folder (usually <code>articles</code> and
+    which build target it's part of (usually <code>:articles</code>).</p>
+    <p>The sassTask creates the css file, to use it you need to modify
+    the page skeleton that wraps the article. Again look at the
+    rakefile to see how I set this - putting <code>flexible.css</code>
+    into a skeleton whch then gets used later on.</p>
+    <p>Once you have the css files plugged in, then you can add any
+    scss you like. I start the css file by importing the usual article
+    scss file that has all the defaults. </p>
+  </section>
+  <section>
+    <h>Semantic Markup</h>
+     <p>You can do a lot of writing using the vocabulary of a generic
+    article: paragraphs, sections, italic text, etc. For some
+    articles, however, it's nice to use markup vocabulary that's
+    meaningful for the article in question. For example consider
+    showing a table of nosql databases, like this.</p>
+    <database-list>
+      <data-model name = "Key-Value" >
+        <database name = "Riak" uri = "http://foo.com"/>
+        <database name = "Redis" uri = ""/>
+        <database name = "Project Voldemort" uri = ""/>
+      </data-model>
+      <data-model name = "Document" >
+        <database name="CouchDB" uri = ""/>
+        <database name = "MongoDB"  uri = ""/>
+        <database name = "RavenDB" uri = ""/>
+      </data-model>
+      <data-model name="Column-Family">
+        <database name = "Cassandra"  uri = ""/>
+        <database name = "HBase" uri = ""/>
+      </data-model>
+      <data-model name="Graph" >
+        <database name = "Neo4J" uri = ""/>
+      </data-model>
+    </database-list>
+    <p>or like this</p>
+    <databases-by-model/>
+    <p>The example is simplistic but if you look at the XML source you
+    will get the point. HTML tables are fiddly to edit, with XML we
+    can represent the underlying data in a way that makes semantic
+    sense, and then use the transformation code to turn it into a
+    suitable HTML representation. We can take the same data and
+    transform it different ways for different purposes. Such is the
+    usefulness of semantic markup.</p>
+    <p>Of course to do this, you'll need to get familiar with the ruby
+    tranformer code that I use. I haven't got around to explaining
+    that yet.</p>
+    <p>Semantic markup can also be used for document sections, which
+    is particularly handy you have many documents with similar
+    structure, such as patterns.</p>
+    <p>I use semantic markup where I have things with similar meanings
+    where I may want to make global changes to how they are rendered.
+    Or for something that I may want to extract and render in
+    different ways.</p>
+  </section>
+  <section>
+    <h>Code Samples</h>
+    <p>With flexible articles, you can your code tree anywhere you
+    like. I usually put it in the same folder as the article itself.
+    </p>
+    <insertCode file="example.rb" fragment="first"/>
+  </section>
+  <section>
+    <h>Images</h>
+    <p>Images can be packaged in the same folder as the article
+    source.</p>
+    <figure src="/2box.png">Some meaningless diagram
+    with an uninformative caption</figure>
   </section>
 </body>
 </paper>
