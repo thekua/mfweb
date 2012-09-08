@@ -22,7 +22,7 @@ body {
     min-height: 500px;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5 {
    color: $dk-purple;
    font-weight: bold;
    a:link, a:visited {
@@ -39,7 +39,7 @@ h2 {
    font-size: 150%;
 }
 
-p, h1, h2, h3, ul {
+p, h1, h2, h3, h4, h5 ul {
     margin: 1em 0;
 }
 
