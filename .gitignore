@@ -2,3 +2,6 @@ build
 gen
 .sass-cache
 TAGS
+*.iml
+*.ipr
+*.iws
