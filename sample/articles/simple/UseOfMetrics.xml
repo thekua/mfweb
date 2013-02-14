@@ -6,7 +6,7 @@
 to the article. The most recent update should go at the top, it's date
 is used as the date of the article. There must be at least one version
 element and all version elements need a date. -->
-    <version date="2012-11-01">First draft stub</version>
+    <version date="2013-02-14">Initial version</version>
     <author>
         <!-- add one <author> element for each author on the article. Only the
 <author-name> is required, but the other elements are usually useful.-->
