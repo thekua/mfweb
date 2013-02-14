@@ -157,14 +157,15 @@ element and all version elements need a date. -->
                 their organization’s software lifecycle. A typical process might look like this with the ideal flow of
                 stories moving from left to right:
             </p>
-            <figure src="images/UseOfMetrics/metrics-cardwall.png">Example of a storywall</figure>
+            <figure src="images/UseOfMetrics/metrics-cardwall2.png">Example of a storywall</figure>
             <p>
                 Management and product management often ask the question, &quot;How soon will that feature be complete?&quot;
                 Teams often choose to interpret this as when coding finishes, succumbing to the idea that testing and
                 the path to production are trivial and inconsequential parts of software process. Project management
                 reinforces this perception by asking the question, &quot;How many stories did we finish coding this
-                week?&quot; instead of the better question, "How many stories are we happy to release to end users?" or
-                better yet, "How many stories did we release to end users?"
+                week?&quot; instead of the better question, &quot;How many stories are we happy to release to end users?&quot; or
+                better yet, &quot;How many stories did we release to end users?&quot; An even better question is, &quot;How much value
+                have our users found from our recent releases?&quot;
             </p>
 
             <p>
@@ -231,7 +232,7 @@ element and all version elements need a date. -->
                     <p>Use shorter tracking periods</p>
                 </li>
                 <li>
-                    <p>Use metrics to lead change or change the metrics</p>
+                    <p>Change metrics when they stop driving change</p>
                 </li>
             </ol>
 
@@ -441,7 +442,7 @@ element and all version elements need a date. -->
                 </p>
             </section>
             <section>
-                <h>Use metrics to lead change or change the metrics</h>
+                <h>Change metrics when they stop driving change</h>
                 <p>
                     If organizations reached goals easily, they would never need metrics. The organization could shift
                     direction and they would reach their goal immediately. Unfortunately this doesn’t happen in reality
@@ -556,17 +557,23 @@ element and all version elements need a date. -->
 
         </section>
 
-    </body>
-
-    <appendix>
         <section>
-            <h>Appendix</h>
-            <p>The appendix is separated and rendered slightly differently. It's
-                good for secondary items, acknowledgements, and the like.
+            <h>Related articles</h>
+            <p>
+                You might find the following articles on the use and mis-use of metrics interesting to read:
+                <ul>
+                    <li><a href="http://www.estherderby.com/2010/09/gaming-incentives.html" title="Gaming Incentives">Gaming Incentives by Esther Derby</a>
+                        - A reflection on how people manipulate situations to maximise their incentivization scheme.</li>
+                    <li><a title="Vanity Metrics vs. Actionable Metrics" href="http://www.fourhourworkweek.com/blog/2009/05/19/vanity-metrics-vs-actionable-metrics/">Vanity Metrics vs. Actionable Metrics by Eric Ries</a>
+                    - Lean Startup evangelist, Eric Ries describes how to make metrics more actionable and the dangers of measurement for the sake of measurement.</li>
+                    <li><a href="http://jimhighsmith.com/velocity-is-killing-agility/" title="Velocity is Killing Agility">Velocity is Killing Agilty by Jim Highsmith</a>
+                        - A highly relevant article describing how companies misappropriate velocity as a metric.</li>
+                </ul>
             </p>
         </section>
-        <display-footnotes/>
-    </appendix>
+
+    </body>
+
     <footnote-list>
         <footnote key="singleLoop">
             Chris Arygris &amp; Donald A. Schön describes the concepts of single-loop and double-loop learning in their book <book isbn="0201001748">Organizational Learning: A theory of action perspective</book>.
